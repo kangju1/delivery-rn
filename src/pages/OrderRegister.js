@@ -24,7 +24,7 @@ export default class OrderRegister extends Component {
                 <Content>
                     <Formik
                         enableReinitialize
-                        initialValues={{lat: 0, lng: 0, name: '', quota: '1'}}
+                        initialValues={{lat: 36.446337, lng: 126.799904, name: '', quota: '1'}}
                         onSubmit={async (values, {resetForm}) => {
                             let res = await this.api.post('v1/delivery/groups/', {shop_name: values.name, quota: values.quota, lat: values.lat, lng: values.lng});
                             console.log(res);

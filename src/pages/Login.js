@@ -22,7 +22,7 @@ export default class Login extends Component {
     }
 
     async login(values) {
-        let res = await this.api.post('/v1/sign-in/email', { email: values.email, password: values.password });
+        let res = await this.api.post('/v1/sign-in/email', { username: values.email, password: values.password });
         console.log(res);
         if(!res.ok) return false;
 
@@ -30,7 +30,7 @@ export default class Login extends Component {
     }
 
     signup = async (values) => {
-        let res = await this.api.post('/v1/sign-up/email', {name: values.name, email: values.email, password: values.password });
+        let res = await this.api.post('/v1/sign-up/email', {name: values.name, username: values.email, password: values.password });
         console.log(res);
         if(!res.ok) return false;
 
@@ -51,7 +51,6 @@ export default class Login extends Component {
                     validationSchema={yup.object().shape({
                         email: yup
                             .string()
-                            .email('올바른 이메일 형식으로 입력해주세요.')
                             .required('필수 입력 사항입니다.'),
                         password: yup
                             .string()
@@ -60,11 +59,10 @@ export default class Login extends Component {
                     {({ values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit, setFieldValue, resetForm }) => (
                         <View>
                             <View style={{marginTop: 20}}>
-                                <Text style={{fontSize: 16, color: '#323232', marginRight: 10}}>이메일</Text>
+                                <Text style={{fontSize: 16, color: '#323232', marginRight: 10}}>학번</Text>
                                 <TextInput
                                     style={{backgroundColor: '#fff', fontSize: 18, padding: 10, marginTop: 10, borderWidth: 1, borderColor: '#ccc', borderRadius: 3}}
                                     value={values.email}
-                                    keyboardType={'email-address'}
                                     autoCapitalize={'none'}
                                     onChangeText={handleChange('email')}
                                     onBlur={() => setFieldTouched('email')}
@@ -118,7 +116,6 @@ export default class Login extends Component {
                     validationSchema={yup.object().shape({
                         email: yup
                             .string()
-                            .email('올바른 이메일 형식으로 입력해주세요.')
                             .required('필수 입력 사항입니다.'),
                         password: yup
                             .string()
@@ -146,11 +143,10 @@ export default class Login extends Component {
                                 <Text style={{ textAlign: 'right', fontSize: 10, color: 'red', marginTop: 5 }}>{errors.name}</Text>}
                             </View>
                             <View style={{marginTop: 20}}>
-                                <Text style={{fontSize: 16, color: '#323232', marginRight: 10}}>이메일</Text>
+                                <Text style={{fontSize: 16, color: '#323232', marginRight: 10}}>학번</Text>
                                 <TextInput
                                     style={{backgroundColor: '#fff', fontSize: 18, padding: 10, marginTop: 10, borderWidth: 1, borderColor: '#ccc', borderRadius: 3}}
                                     value={values.email}
-                                    keyboardType={'email-address'}
                                     autoCapitalize={'none'}
                                     onChangeText={handleChange('email')}
                                     onBlur={() => setFieldTouched('email')}

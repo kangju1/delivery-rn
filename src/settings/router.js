@@ -9,6 +9,7 @@ import Login from '../pages/Login';
 import OrderDetail from '../pages/OrderDetail';
 import OrderRegister from '../pages/OrderRegister';
 import MapSelect from '../pages/MapSelect';
+import Main from '../pages/Main';
 
 
 
@@ -22,6 +23,9 @@ const StackNavigator = createStackNavigator({
     Login: {
         screen: Login,
     },
+    Main: {
+        screen: Main,
+    },
     OrderList: {
         screen: OrderList,
     },
@@ -33,7 +37,7 @@ const StackNavigator = createStackNavigator({
     },
     MapSelect: {
         screen: MapSelect,
-    }
+    },
 },{
     initialRouteName: 'Splash',
     transitionConfig: (navigation) => {
